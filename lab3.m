@@ -1,0 +1,15 @@
+N=100;
+C=[2 1; 1 2];
+C2 = [1 0;0 1];
+A= chol(C);
+A2= chol(C2);
+x=randn(N,2);
+xc=x*A;
+x1=randn(N,2);
+x1c=x1*A2;
+m = [0 2];
+m1=[1.7 2.5];
+xcm = xc+kron(ones(N,1),m);
+x1cm = x1c+kron(ones(N,1),m1);
+plot(xcm(:, 1), xcm(:,2), 'cx',x1cm(:,1),x1cm(:, 2),'mx');
+hold on;
